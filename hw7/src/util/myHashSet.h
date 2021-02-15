@@ -81,6 +81,14 @@ public:
          return _bucket == i._bucket && _numBuckets == i._numBuckets && _bucketNum == i._bucketNum && _idx == i._idx;
       }
       bool operator != (const iterator& i) const { return !(*this == i); }
+      iterator& operator = (const iterator& i) {
+         _bucket = i._bucket;
+         _numBuckets = i._numBuckets;
+         _bucketNum = i._bucketNum;
+         _idx = i._idx;
+         return (*this);
+      }
+
    private:
       vector<Data>* _bucket;
       size_t _numBuckets;
